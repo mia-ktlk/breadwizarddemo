@@ -3113,28 +3113,56 @@ window.addEventListener('resize', () => {
   canvas.height = window.innerHeight;
 });
 
-// ─── SPARKLE MOUSE TRAIL (welcome screen only) ───────────────────────────────
+// ─── SPARKLE MOUSE TRAIL ─────────────────────────────────────────────────────
 (function() {
   const SPARKLE_CHARS = ['✨', '☆', '·', '⋆', '★', '·', '✨'];
   const COLORS = ['#F5A623', '#E8834A', '#4AABDB', '#2D7A4F', '#F0C040', '#C0392B', '#ffffff'];
   let lastSparkle = 0;
   const THROTTLE = 40; // ms between sparkles
 
-  function isOnWelcomeScreen() {
-    // Screens are shown/hidden via the 'active' class, not display style
-    return currentScreen === 'screen-welcome';
+  // Cards + chrome where sparkles should not appear
+  const BLOCK_SELECTOR = [
+    '.navbar',
+    '.bread-card',
+    '.cookie-card',
+    '.choice-btn',
+    '.leavening-card',
+    '.help-decide-card',
+    '.new-baker-bar',
+    '.quiz-option',
+    '.quiz-card',
+    '.recipe-item',
+    '.info-box',
+    '.wizard-cta-banner',
+    '.demo-gear-wrap',
+    '.demo-panel',
+    '.video-modal',
+    '.progress-bar-wrap',
+    '.section-header',
+    '.hero-section',
+    '.back-btn',
+    '.link-btn',
+    '.btn-primary',
+    '.secondary-links',
+    'button',
+    'a',
+    'input'
+  ].join(',');
+
+  function sparklesEnabled() {
+    // Active on every page except All Recipes
+    return currentScreen !== 'screen-all-recipes';
   }
 
   function isOverCard(e) {
-    // Suppress sparkles whenever the mouse is over ANY non-background element
     const el = document.elementFromPoint(e.clientX, e.clientY);
-    if (!el) return false;
-    // Allow sparkles only when directly over the screen wrapper or body
-    const allowed = ['screen-welcome', 'wizard-wrapper'];
-    if (allowed.includes(el.id)) return false;
+    if (!el) return true;
+    // Pure page background always sparks
     if (el.tagName === 'BODY' || el.tagName === 'HTML') return false;
-    // Everything else (cards, buttons, nav, banners, text, images) suppresses sparkles
-    return true;
+    if (el.id === 'wizard-wrapper' || el.classList.contains('screen')) return false;
+    // Card surfaces and interactive chrome suppress sparkles;
+    // layout wrappers (e.g. .bread-cards gaps) do not.
+    return !!el.closest(BLOCK_SELECTOR);
   }
 
   function spawnSparkle(x, y) {
@@ -3173,7 +3201,7 @@ window.addEventListener('resize', () => {
   }
 
   document.addEventListener('mousemove', function(e) {
-    if (!isOnWelcomeScreen()) return;
+    if (!sparklesEnabled()) return;
     const now = Date.now();
     if (now - lastSparkle < THROTTLE) return;
     if (isOverCard(e)) return;
@@ -3181,6 +3209,7 @@ window.addEventListener('resize', () => {
     spawnSparkle(e.clientX, e.clientY);
   });
 })();
+
 
 </script>
 </body>
