@@ -127,7 +127,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 36px;
+      margin-bottom: 18px;
       justify-content: center;
     }
     .progress-step {
@@ -353,6 +353,9 @@
     .bread-card.teal-card   { border-color: #4AABDB; }
     .bread-card.gold-card   { border-color: #C0392B; }
 
+    .bread-card-img-wrap {
+      position: relative;
+    }
     .bread-card-img {
       width: 100%;
       height: 150px;
@@ -373,6 +376,13 @@
       padding: 4px 10px;
       border-radius: 50px;
       margin-bottom: 10px;
+    }
+    .bread-card-img-wrap .bread-card-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      margin-bottom: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
     }
     .badge-orange { background: #d8f0e4; color: #2D7A4F; }
     .badge-teal   { background: #d4eef9; color: #2178A8; }
@@ -1234,7 +1244,7 @@
       .back-btn { font-size: 0.82rem; margin-bottom: 16px; }
 
       /* PROGRESS BAR */
-      .progress-bar-wrap { gap: 6px; margin-bottom: 24px; }
+      .progress-bar-wrap { gap: 6px; margin-bottom: 12px; }
       .progress-step { width: 28px; height: 6px; }
 
       /* DEMO GEAR */
@@ -1924,9 +1934,11 @@
     <div class="bread-cards">
       <!-- Satisfying Whole Wheat -->
       <div class="bread-card orange-card">
-        <img src="images/satisfying-whole-wheat.png?v=2" alt="Satisfying Whole Wheat" class="bread-card-img" />
-        <div class="bread-card-body">
+        <div class="bread-card-img-wrap">
+          <img src="images/satisfying-whole-wheat.png?v=2" alt="Satisfying Whole Wheat" class="bread-card-img" />
           <span class="bread-card-badge badge-orange">⭐ Beginner Friendly</span>
+        </div>
+        <div class="bread-card-body">
           <h3 class="bread-card-title">Satisfying Whole Wheat</h3>
           <p class="bread-card-tagline">Our quickest and easiest pan loaf to bake and donate.</p>
           <ul class="bread-card-bullets">
@@ -1941,9 +1953,11 @@
 
       <!-- Honey Oat -->
       <div class="bread-card teal-card">
-        <img src="images/honey-oat.png?v=2" alt="Honey Oat" class="bread-card-img" />
-        <div class="bread-card-body">
+        <div class="bread-card-img-wrap">
+          <img src="images/honey-oat.png?v=2" alt="Honey Oat" class="bread-card-img" />
           <span class="bread-card-badge badge-teal">🏆 Original Classic</span>
+        </div>
+        <div class="bread-card-body">
           <h3 class="bread-card-title">Honey Oat</h3>
           <p class="bread-card-tagline">The original classic Community Loaves loaf — worth every extra minute.</p>
           <ul class="bread-card-bullets">
@@ -1958,9 +1972,11 @@
 
       <!-- Sunflower Rye -->
       <div class="bread-card gold-card">
-        <img src="images/sunflower-rye.png?v=2" alt="Sunflower Rye" class="bread-card-img" />
-        <div class="bread-card-body">
+        <div class="bread-card-img-wrap">
+          <img src="images/sunflower-rye.png?v=2" alt="Sunflower Rye" class="bread-card-img" />
           <span class="bread-card-badge badge-gold">🌻 Newest Recipe</span>
+        </div>
+        <div class="bread-card-body">
           <h3 class="bread-card-title">Sunflower Rye</h3>
           <p class="bread-card-tagline">Nutty, delicious, and inspired by Eastern European tradition.</p>
           <ul class="bread-card-bullets">
