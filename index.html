@@ -989,6 +989,560 @@
       text-align: right;
     }
 
+    /* ─── HOLIDAY COOKIE CONTEST ARCHIVE ──────────────────────── */
+    .contest-winner {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.9fr) minmax(320px, 1.1fr);
+      background: #fff;
+      border: 3px solid var(--gold);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(180,120,20,0.14);
+      margin-bottom: 24px;
+    }
+    .contest-winner.compact {
+      height: 325px;
+    }
+    .contest-winner.compact .contest-winner-img {
+      min-height: 0;
+    }
+    .contest-winner.compact .contest-winner-body {
+      padding: 20px 26px;
+    }
+    .contest-winner-img {
+      width: 100%;
+      height: 100%;
+      min-height: 290px;
+      object-fit: cover;
+    }
+    .contest-winner-body {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .contest-winner-badge {
+      align-self: flex-start;
+      background: #fff3c8;
+      color: #8a5a00;
+      border-radius: 50px;
+      padding: 6px 12px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+    .contest-winner-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      font-weight: 600;
+      color: var(--brown);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .contest-winner-desc {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--brown-lt);
+      font-size: 0.88rem;
+      line-height: 1.55;
+      margin-bottom: 18px;
+    }
+    .contest-baker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--brown-lt);
+    }
+    .contest-baker-photo {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #e8ddd0;
+      background: #eee;
+    }
+    .contest-baker strong {
+      display: block;
+      color: var(--brown);
+      font-size: 0.85rem;
+    }
+    .contest-grid-heading {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--brown);
+      margin: 24px 0 12px;
+    }
+    .contest-about {
+      background: #fff;
+      border-left: 5px solid var(--teal);
+      border-radius: 16px;
+      padding: 20px 22px;
+      margin-bottom: 20px;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--brown-lt);
+      font-size: 0.86rem;
+      line-height: 1.65;
+    }
+    .contest-about strong {
+      display: block;
+      color: var(--brown);
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    .contest-recipe-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .contest-recipe-card.winner {
+      outline: 3px solid var(--gold);
+      outline-offset: -3px;
+    }
+    .contest-card-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 2;
+      background: #fff3c8;
+      color: #8a5a00;
+      border-radius: 50px;
+      padding: 5px 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      box-shadow: 0 2px 7px rgba(0,0,0,0.14);
+    }
+    .contest-recipe-card .recipe-item-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .contest-recipe-card .recipe-item-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+    }
+    .contest-recipe-card .contest-baker {
+      margin-top: 12px;
+    }
+    .contest-recipe-card .contest-baker-photo {
+      width: 34px;
+      height: 34px;
+    }
+    .contest-empty {
+      grid-column: 1 / -1;
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--brown-lt);
+    }
+    @media (max-width: 700px) {
+      .contest-winner { grid-template-columns: 1fr; }
+      .contest-winner.compact { height: auto; }
+      .contest-winner-img { min-height: 0; height: 210px; }
+      .contest-winner-body { padding: 20px; }
+    }
+
+    /* ─── HOLIDAY COOKIE SNOWFALL ───────────────────────────────── */
+    #screen-holiday-cookies {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+    }
+    #screen-holiday-cookies > :not(.holiday-snowfall) {
+      position: relative;
+      z-index: 1;
+    }
+    .holiday-snowfall {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .holiday-snow-particle {
+      position: absolute;
+      top: -45px;
+      left: var(--left);
+      width: calc(var(--size) + 10px);
+      height: calc(var(--size) + 10px);
+      color: rgba(255,255,255,0.9);
+      filter: drop-shadow(0 1px 2px rgba(67,88,94,0.38));
+      animation: holidaySnowFall calc(var(--duration) + 10s) linear var(--delay) infinite;
+      will-change: top, transform;
+    }
+    @keyframes holidaySnowFall {
+      0% {
+        top: -45px;
+        transform: translateX(0) rotate(0deg);
+      }
+      45% {
+        transform: translateX(var(--drift)) rotate(130deg);
+      }
+      100% {
+        top: calc(100% + 45px);
+        transform: translateX(0) rotate(280deg);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .holiday-snow-particle { animation: none; display: none; }
+    }
+
+    /* ─── FULL RECIPE PAGE ──────────────────────────────────────── */
+    .formula-page {
+      max-width: 1040px;
+      margin: 0 auto;
+      color: var(--brown);
+    }
+    .formula-breadcrumbs {
+      font: 600 0.76rem/1.4 'Montserrat', sans-serif;
+      color: var(--brown-lt);
+      margin: 4px 0 10px;
+    }
+    .formula-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      line-height: 1.08;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .formula-title span { color: #e84b22; }
+    .formula-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .formula-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border-radius: 999px;
+      padding: 6px 11px;
+      background: #fff0bd;
+      color: #81580c;
+      font: 700 0.72rem/1 'Montserrat', sans-serif;
+      letter-spacing: 0.02em;
+    }
+    .formula-badge.teal { background: #dff5f2; color: #1f7067; }
+    .formula-tabs {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      border-top: 1px solid #e6ded5;
+      border-bottom: 1px solid #e6ded5;
+      margin: 0 -28px 26px;
+      padding: 0 28px;
+      background: #fff;
+      scrollbar-width: none;
+    }
+    .formula-tabs::-webkit-scrollbar { display: none; }
+    .formula-tab {
+      flex: 0 0 auto;
+      padding: 13px 12px 11px;
+      color: var(--brown);
+      text-decoration: none;
+      font: 700 0.72rem/1 'Montserrat', sans-serif;
+      border-bottom: 3px solid transparent;
+    }
+    .formula-tab:first-child {
+      color: #e84b22;
+      border-bottom-color: #e84b22;
+    }
+    .formula-main-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 255px;
+      gap: 24px;
+      align-items: start;
+    }
+    .formula-panel {
+      background: #fff;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 3px 14px rgba(64, 45, 30, 0.07);
+      margin-bottom: 22px;
+    }
+    .formula-story {
+      border-left: 4px solid #ef4b23;
+      color: var(--brown-lt);
+      font: 500 0.9rem/1.7 'Montserrat', sans-serif;
+    }
+    .formula-story p + p { margin-top: 10px; }
+    .formula-photo {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      object-position: center 64%;
+      border-radius: 14px;
+      margin-bottom: 22px;
+      display: block;
+    }
+    .formula-gallery {
+      columns: 2;
+      column-gap: 12px;
+    }
+    .formula-gallery figure {
+      break-inside: avoid;
+      margin: 0 0 12px;
+      overflow: hidden;
+      border-radius: 13px;
+      background: #fff;
+      box-shadow: 0 3px 12px rgba(64,45,30,0.1);
+    }
+    .formula-gallery img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: transform 0.25s ease;
+    }
+    .formula-gallery figure:hover img { transform: scale(1.025); }
+    .formula-at-glance {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+    .formula-stat {
+      background: #edf7f6;
+      border-radius: 11px;
+      padding: 12px 8px;
+      text-align: center;
+    }
+    .formula-stat span {
+      display: block;
+      color: #48897f;
+      font: 700 0.62rem/1.2 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .formula-stat strong {
+      font: 700 0.82rem/1.2 'Montserrat', sans-serif;
+      color: var(--brown);
+    }
+    .formula-side {
+      position: sticky;
+      top: 20px;
+    }
+    .formula-action {
+      width: 100%;
+      border: 0;
+      border-radius: 10px;
+      padding: 13px;
+      margin-bottom: 9px;
+      color: #fff;
+      background: #734630;
+      cursor: pointer;
+      font: 700 0.82rem/1 'Montserrat', sans-serif;
+    }
+    .formula-action.orange {
+      background: linear-gradient(135deg, #f57a24, #f04422);
+    }
+    .formula-side-card {
+      background: #f4f4f3;
+      border-radius: 12px;
+      padding: 17px;
+      margin-top: 12px;
+    }
+    .formula-side-card h4 {
+      font: 700 0.72rem/1.2 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--brown-lt);
+      margin-bottom: 11px;
+    }
+    .formula-side-card ol {
+      list-style: none;
+      counter-reset: recipeStep;
+    }
+    .formula-side-card li {
+      counter-increment: recipeStep;
+      position: relative;
+      padding: 0 0 10px 25px;
+      font: 600 0.69rem/1.35 'Montserrat', sans-serif;
+      color: var(--brown);
+    }
+    .formula-side-card li::before {
+      content: counter(recipeStep);
+      position: absolute;
+      left: 0;
+      top: -1px;
+      width: 17px;
+      height: 17px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #a7dce2;
+      color: #326871;
+      font-size: 0.58rem;
+      font-weight: 800;
+    }
+    .formula-side-card li:nth-child(even)::before {
+      background: #5c9d57;
+      color: #fff;
+    }
+    .formula-section { scroll-margin-top: 18px; margin-bottom: 28px; }
+    .formula-section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.35rem;
+      color: var(--brown);
+      margin-bottom: 14px;
+    }
+    .formula-section-title span {
+      border-radius: 999px;
+      background: #4c9a91;
+      color: #fff;
+      padding: 6px 11px;
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .formula-note {
+      background: #fff8df;
+      border-left: 3px solid #efb120;
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 12px;
+      color: #68522d;
+      font: 500 0.77rem/1.55 'Montserrat', sans-serif;
+    }
+    .formula-note strong { color: #78550e; }
+    .ingredients-table {
+      width: 100%;
+      border-collapse: collapse;
+      font: 600 0.75rem/1.35 'Montserrat', sans-serif;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .ingredients-table th {
+      padding: 11px 12px;
+      background: #f0440b;
+      color: #fff;
+      text-align: left;
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .ingredients-table td {
+      padding: 11px 12px;
+      border-bottom: 1px solid #e5e1dd;
+      background: #f6f6f5;
+      vertical-align: top;
+    }
+    .ingredients-table tr:nth-child(even) td { background: #eeedeb; }
+    .ingredients-table td:last-child {
+      width: 110px;
+      text-align: right;
+      color: var(--brown-lt);
+      white-space: nowrap;
+    }
+    .recipe-step {
+      background: #fff;
+      border: 1px solid #dfdbd7;
+      border-radius: 11px;
+      box-shadow: 0 2px 8px rgba(64,45,30,0.05);
+      margin-bottom: 9px;
+      overflow: hidden;
+    }
+    .recipe-step summary {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      list-style: none;
+      cursor: pointer;
+      padding: 14px 15px;
+      font: 700 0.78rem/1.35 'Montserrat', sans-serif;
+      color: var(--brown);
+    }
+    .recipe-step summary::-webkit-details-marker { display: none; }
+    .recipe-step summary::after {
+      content: '▼';
+      margin-left: auto;
+      color: #777;
+      font-size: 0.7rem;
+    }
+    .recipe-step[open] summary::after { content: '▲'; }
+    .step-number {
+      flex: 0 0 auto;
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #a8dce3;
+      color: #2f6a72;
+      font-size: 0.7rem;
+    }
+    .recipe-step:nth-of-type(even) .step-number {
+      background: #4d9251;
+      color: #fff;
+    }
+    .recipe-step p {
+      padding: 0 52px 16px;
+      color: var(--brown-lt);
+      font: 500 0.78rem/1.65 'Montserrat', sans-serif;
+    }
+    .formula-empty {
+      max-width: 360px;
+      background: #fff;
+      border-left: 4px solid #4babba;
+      border-radius: 4px 12px 12px 4px;
+      padding: 16px;
+      color: var(--brown-lt);
+      font: 500 0.84rem/1.55 'Montserrat', sans-serif;
+    }
+    .formula-share {
+      border: 2px solid #f3cabe;
+      background: #fff7f4;
+      border-radius: 18px;
+      padding: 26px;
+      margin-top: 34px;
+    }
+    .formula-share h3 {
+      font: 700 1.2rem/1.3 'Montserrat', sans-serif;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+    .formula-share h3 span { color: #ef4b23; }
+    .formula-share p {
+      color: var(--brown-lt);
+      font: 500 0.82rem/1.6 'Montserrat', sans-serif;
+    }
+    @media (max-width: 780px) {
+      .formula-main-grid { grid-template-columns: 1fr; }
+      .formula-side { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .formula-side-card { grid-column: 1 / -1; }
+      .formula-action { margin-bottom: 0; }
+      .formula-photo { height: 250px; }
+    }
+    @media (max-width: 520px) {
+      .formula-tabs { margin-left: -18px; margin-right: -18px; padding: 0 14px; }
+      .formula-panel { padding: 16px; }
+      .formula-at-glance { grid-template-columns: 1fr 1fr; }
+      .formula-gallery { column-gap: 8px; }
+      .formula-gallery figure { margin-bottom: 8px; border-radius: 10px; }
+      .formula-side { grid-template-columns: 1fr; }
+      .ingredients-table td:last-child { width: auto; }
+      .recipe-step p { padding-left: 52px; padding-right: 18px; }
+    }
+    @media print {
+      header, .site-header, .progress-bar-wrap, .formula-tabs, .formula-side, .back-btn, footer { display: none !important; }
+      body { background: #fff; }
+      .screen.active { display: block; }
+      .formula-page { max-width: none; }
+      .formula-panel, .recipe-step { box-shadow: none; break-inside: avoid; }
+    }
+
     /* ─── RECIPE PLACEHOLDER ───────────────────────────────────── */
     .recipe-placeholder {
       background: #fff;
@@ -2062,6 +2616,35 @@
        SCREEN 6b — HOLIDAY COOKIES RECIPE SELECTION
   ───────────────────────────────────────────────────────────── -->
   <div class="screen" id="screen-holiday-cookies">
+    <div class="holiday-snowfall" aria-hidden="true">
+      <svg width="0" height="0" style="position:absolute;">
+        <defs>
+          <symbol id="holiday-snowflake" viewBox="0 0 24 24">
+            <g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+              <path d="M12 2v20M3.34 7l17.32 10M3.34 17L20.66 7"/>
+              <path d="m12 2-2 2m2-2 2 2m-2 18-2-2m2 2 2-2M3.34 7l2.73.73M3.34 7l.73-2.73m16.59 12.73-2.73-.73m2.73.73-.73 2.73M3.34 17l.73 2.73M3.34 17l2.73-.73M20.66 7l-.73-2.73M20.66 7l-2.73.73"/>
+            </g>
+          </symbol>
+          <symbol id="holiday-snow-circle" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="8" fill="currentColor"/>
+          </symbol>
+        </defs>
+      </svg>
+      <svg class="holiday-snow-particle" style="--left:4%;--size:18px;--duration:11s;--delay:-7s;--drift:20px;"><use href="#holiday-snowflake"/></svg>
+      <svg class="holiday-snow-particle" style="--left:11%;--size:8px;--duration:9s;--delay:-2s;--drift:-13px;--opacity:.48;"><use href="#holiday-snow-circle"/></svg>
+      <svg class="holiday-snow-particle" style="--left:18%;--size:13px;--duration:13s;--delay:-10s;--drift:28px;"><use href="#holiday-snowflake"/></svg>
+      <svg class="holiday-snow-particle" style="--left:25%;--size:7px;--duration:10s;--delay:-5s;--drift:14px;--opacity:.5;"><use href="#holiday-snow-circle"/></svg>
+      <svg class="holiday-snow-particle" style="--left:33%;--size:21px;--duration:15s;--delay:-4s;--drift:-26px;--opacity:.55;"><use href="#holiday-snowflake"/></svg>
+      <svg class="holiday-snow-particle" style="--left:40%;--size:9px;--duration:12s;--delay:-9s;--drift:17px;--opacity:.45;"><use href="#holiday-snow-circle"/></svg>
+      <svg class="holiday-snow-particle" style="--left:47%;--size:15px;--duration:10s;--delay:-6s;--drift:-19px;"><use href="#holiday-snowflake"/></svg>
+      <svg class="holiday-snow-particle" style="--left:54%;--size:6px;--duration:8s;--delay:-1s;--drift:11px;--opacity:.52;"><use href="#holiday-snow-circle"/></svg>
+      <svg class="holiday-snow-particle" style="--left:61%;--size:19px;--duration:14s;--delay:-11s;--drift:25px;--opacity:.58;"><use href="#holiday-snowflake"/></svg>
+      <svg class="holiday-snow-particle" style="--left:68%;--size:10px;--duration:11s;--delay:-3s;--drift:-15px;--opacity:.46;"><use href="#holiday-snow-circle"/></svg>
+      <svg class="holiday-snow-particle" style="--left:75%;--size:14px;--duration:9s;--delay:-8s;--drift:18px;"><use href="#holiday-snowflake"/></svg>
+      <svg class="holiday-snow-particle" style="--left:82%;--size:7px;--duration:13s;--delay:-6s;--drift:-12px;--opacity:.5;"><use href="#holiday-snow-circle"/></svg>
+      <svg class="holiday-snow-particle" style="--left:89%;--size:22px;--duration:16s;--delay:-13s;--drift:-27px;--opacity:.57;"><use href="#holiday-snowflake"/></svg>
+      <svg class="holiday-snow-particle" style="--left:96%;--size:9px;--duration:10s;--delay:-4s;--drift:13px;--opacity:.48;"><use href="#holiday-snow-circle"/></svg>
+    </div>
     <button class="back-btn" onclick="goTo('screen-special')">← Back</button>
     <div class="section-header">
       <img src="images/bread-wizard.png" alt="Wizard" class="wizard-mini" />
@@ -2073,27 +2656,85 @@
 
     <div class="help-decide-grid" style="margin-bottom:20px;">
 
-      <!-- 2026 RECIPE CARD -->
-      <div class="help-decide-card" onclick="showRecipe('special-holiday-cookies')" style="cursor:pointer;">
-        <h3 class="help-decide-title" style="display:flex;align-items:center;gap:8px;"><span>🍁</span> 2026 Holiday Cookie Recipe</h3>
-        <p class="help-decide-desc">This year's featured holiday cookie: <strong>Maple Thumbprint Cookies</strong>. A warm, festive oat cookie filled with golden maple caramel.</p>
-        <div style="margin:12px 0;">
-          <img src="images/maple-thumbprint.png" alt="Maple Thumbprint Cookies" style="width:100%;border-radius:12px;object-fit:cover;max-height:160px;" />
+      <!-- 2026 WINNER / FEATURED RECIPE CARD -->
+      <div class="help-decide-card" onclick="openPistachioRecipe('holiday')" style="cursor:pointer;">
+        <h3 class="help-decide-title" style="display:flex;align-items:center;gap:8px;"><span>🏆</span> 2026 Winner — Featured Recipe</h3>
+        <p class="help-decide-desc"><strong>Pistachio Cherry Cookies</strong> by Shannon McCullough, Team Kirkland Mother Ship - N. Rose Hill. The official featured cookie for 2026.</p>
+        <div style="margin:16px 0 12px;background:#fff;border:1px solid #eadfce;border-radius:16px;overflow:hidden;box-shadow:0 5px 16px rgba(64,45,30,0.09);">
+          <img src="2026 - Competition Recipes/06_Pistachio Cherry Cookie/Pistachio Cherry Cookie.jpg" alt="Pistachio Cherry Cookies" style="display:block;width:100%;object-fit:cover;max-height:190px;" />
+          <button class="btn-primary" style="width:100%;margin:0;border-radius:0;padding:16px 20px;" onclick="event.stopPropagation();openPistachioRecipe('holiday')">Pistachio Cherry Cookie Recipe →</button>
         </div>
-        <button class="btn-primary" style="width:100%;margin-top:10px;" onclick="event.stopPropagation();showRecipe('special-holiday-cookies')">View 2026 Recipe →</button>
+        <button class="btn-primary" style="width:100%;margin-top:0;background:var(--teal-dk);" onclick="event.stopPropagation();openCookieContest(2026)">View 2026 Competition →</button>
       </div>
 
       <!-- PAST RECIPES CARD -->
-      <div class="help-decide-card" onclick="goToSpecialFilter('special-holiday')" style="cursor:pointer;">
-        <h3 class="help-decide-title" style="display:flex;align-items:center;gap:8px;"><span>📚</span> View Past Recipes</h3>
-        <p class="help-decide-desc">Browse holiday cookie recipes from previous years. Great for inspiration or if you want to revisit a classic.</p>
+      <div class="help-decide-card">
+        <h3 class="help-decide-title" style="display:flex;align-items:center;gap:8px;"><img src="images/recipe-cookie.png" alt="" style="width:34px;height:34px;object-fit:contain;" /> View Past Recipes</h3>
+        <p class="help-decide-desc">Browse every entry from past Baking Spirits Bright competitions and meet the bakers behind them.</p>
         <div style="display:flex;flex-direction:column;gap:8px;margin:12px 0;">
-          <button onclick="event.stopPropagation();showRecipe('holiday-cookies-2025')" style="font-family:'Montserrat',sans-serif;font-size:0.82rem;background:#f0faf8;border:1px solid #b2e0d8;border-radius:8px;padding:6px 10px;color:#1a5c50;cursor:pointer;text-align:left;width:100%;">🎄 2025 Holiday Cookie Recipe →</button>
-          <button onclick="event.stopPropagation();showRecipe('holiday-cookies-2024')" style="font-family:'Montserrat',sans-serif;font-size:0.82rem;background:#f0faf8;border:1px solid #b2e0d8;border-radius:8px;padding:6px 10px;color:#1a5c50;cursor:pointer;text-align:left;width:100%;">🎄 2024 Holiday Cookie Recipe →</button>
+          <button onclick="openCookieContest(2026)" style="font-family:'Montserrat',sans-serif;font-size:0.82rem;background:#f0faf8;border:1px solid #b2e0d8;border-radius:8px;padding:8px 10px;color:#1a5c50;cursor:pointer;text-align:left;width:100%;">🏆 2026 Baking Spirits Bright →</button>
+          <button onclick="openCookieContest(2025)" style="font-family:'Montserrat',sans-serif;font-size:0.82rem;background:#f0faf8;border:1px solid #b2e0d8;border-radius:8px;padding:8px 10px;color:#1a5c50;cursor:pointer;text-align:left;width:100%;">🏆 2025 Baking Spirits Bright →</button>
+          <button onclick="openCookieContest(2024)" style="font-family:'Montserrat',sans-serif;font-size:0.82rem;background:#f0faf8;border:1px solid #b2e0d8;border-radius:8px;padding:8px 10px;color:#1a5c50;cursor:pointer;text-align:left;width:100%;">🏆 2024 Baking Spirits Bright →</button>
+          <button onclick="openCookieContest(2023)" style="font-family:'Montserrat',sans-serif;font-size:0.82rem;background:#f0faf8;border:1px solid #b2e0d8;border-radius:8px;padding:8px 10px;color:#1a5c50;cursor:pointer;text-align:left;width:100%;">🏆 2023 Baking Spirits Bright →</button>
+          <button onclick="openCookieContest(2022)" style="font-family:'Montserrat',sans-serif;font-size:0.82rem;background:#f0faf8;border:1px solid #b2e0d8;border-radius:8px;padding:8px 10px;color:#1a5c50;cursor:pointer;text-align:left;width:100%;">🏆 2022 Baking Spirits Bright →</button>
         </div>
-        <button class="btn-primary" style="width:100%;margin-top:10px;background:var(--teal-dk);" onclick="event.stopPropagation();goToSpecialFilter('special-holiday')">See All Recipes →</button>
+        <button class="btn-primary" style="width:100%;margin-top:10px;background:var(--teal-dk);" onclick="openAllCookieContests()">View All Recipes →</button>
       </div>
 
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────────────
+       SCREEN 6c — BAKING SPIRITS BRIGHT ARCHIVE
+  ───────────────────────────────────────────────────────────── -->
+  <div class="screen" id="screen-cookie-contest">
+    <button class="back-btn" onclick="goTo('screen-holiday-cookies')">← Back to Holiday Cookies</button>
+    <div class="section-header">
+      <img src="images/bread-wizard.png" alt="Wizard" class="wizard-mini" />
+      <div class="section-header-text">
+        <h2 class="section-title" id="contestTitle">2025 Baking Spirits Bright</h2>
+        <p class="section-subtitle" id="contestSubtitle">Meet the winning baker and browse every competition entry.</p>
+      </div>
+    </div>
+
+    <div class="all-recipes-wrap">
+      <div class="contest-about" id="contestAbout" style="display:none;"></div>
+
+      <div class="recipes-toolbar">
+        <div class="search-bar-wrap" style="flex:1; min-width:180px; margin-bottom:0;">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="contestSearch" placeholder="Search recipes or bakers..." oninput="filterContestRecipes()" />
+        </div>
+      </div>
+
+      <div class="filter-chips-wrap compact">
+        <div class="filter-chips-all" id="contestFilters">
+          <span class="filter-group-inline">Filter:</span>
+          <button class="filter-chip active" data-contest-filter="all" onclick="setContestFilter('all', this)">All</button>
+          <span id="contestYearFilters" style="display:none;align-items:center;gap:6px;flex-wrap:wrap;">
+            <button class="filter-chip" data-contest-filter="year-2026" onclick="setContestFilter('year-2026', this)">2026</button>
+            <button class="filter-chip" data-contest-filter="year-2025" onclick="setContestFilter('year-2025', this)">2025</button>
+            <button class="filter-chip" data-contest-filter="year-2024" onclick="setContestFilter('year-2024', this)">2024</button>
+            <button class="filter-chip" data-contest-filter="year-2023" onclick="setContestFilter('year-2023', this)">2023</button>
+            <button class="filter-chip" data-contest-filter="year-2022" onclick="setContestFilter('year-2022', this)">2022</button>
+          </span>
+          <button class="filter-chip" data-contest-filter="winner" onclick="setContestFilter('winner', this)">🏆 Winner</button>
+          <button class="filter-chip" data-contest-filter="finalist" onclick="setContestFilter('finalist', this)">🥈 Finalists</button>
+          <button class="filter-chip" data-contest-filter="chocolate" onclick="setContestFilter('chocolate', this)">Chocolate</button>
+          <button class="filter-chip" data-contest-filter="fruit" onclick="setContestFilter('fruit', this)">Fruit</button>
+          <button class="filter-chip" data-contest-filter="spiced" onclick="setContestFilter('spiced', this)">Spiced</button>
+        </div>
+        <div class="filter-results-count" id="contestResultsCount"></div>
+      </div>
+
+      <section class="contest-winner" id="contestWinner">
+        <!-- populated by JS -->
+      </section>
+
+      <h3 class="contest-grid-heading" id="contestGridHeading">More Baking Spirits Bright Recipes</h3>
+      <div class="all-recipes-grid" id="contestRecipesGrid">
+        <!-- populated by JS -->
+      </div>
     </div>
   </div>
 
@@ -2402,7 +3043,171 @@
   </div>
 
   <!-- ─────────────────────────────────────────────────────────────
-       SCREEN 13 — RECIPE PLACEHOLDER
+       SCREEN 13 — 2026 WINNER RECIPE
+  ───────────────────────────────────────────────────────────── -->
+  <div class="screen" id="screen-pistachio-cherry-recipe">
+    <button class="back-btn" id="pistachioRecipeBack" onclick="openCookieContest(2026)">← Back to 2026 Competition</button>
+
+    <div class="formula-page">
+      <div class="formula-breadcrumbs">Holiday Cookies › Baking Spirits Bright 2026 › Winning Recipe</div>
+      <h2 class="formula-title">Pistachio Chocolate <span>Cherry Cookies</span></h2>
+      <div class="formula-badges">
+        <span class="formula-badge">🏆 2026 Winner</span>
+        <span class="formula-badge teal">🍪 About 40 cookies</span>
+        <span class="formula-badge teal">Created by Shannon McCullough</span>
+      </div>
+
+      <nav class="formula-tabs" aria-label="Recipe sections">
+        <a class="formula-tab" href="#pistachio-overview">▣ Overview</a>
+        <a class="formula-tab" href="#pistachio-gallery">▧ Gallery</a>
+        <a class="formula-tab" href="#pistachio-ingredients">▤ Ingredients</a>
+        <a class="formula-tab" href="#pistachio-steps">☷ Recipe Steps</a>
+        <a class="formula-tab" href="#pistachio-tips">● Tips &amp; Resources</a>
+        <a class="formula-tab" href="#pistachio-supplies">🛒 Supplies</a>
+        <a class="formula-tab" href="#pistachio-help">▣ Get Help</a>
+      </nav>
+
+      <div class="formula-main-grid">
+        <main>
+          <section class="formula-section" id="pistachio-overview">
+            <img
+              class="formula-photo"
+              src="2026 - Competition Recipes/06_Pistachio Cherry Cookie/IMG_5069.JPG"
+              alt="Pistachio Chocolate Cherry Cookies from the 2026 competition"
+            />
+
+            <div class="formula-panel formula-story">
+              <p><strong>Shannon’s story:</strong> My hairdresser guarded this Spumoni Shortbread recipe for years. Her holiday party guests begged for it, and she always said no. It took me two years of asking before she finally shared it with me.</p>
+              <p>Once a festive little secret, these buttery, colorful cookies are now ready to spread joy all the way to our local food banks.</p>
+            </div>
+
+            <div class="formula-at-glance" aria-label="Recipe at a glance">
+              <div class="formula-stat"><span>Batch yield</span><strong>About 40</strong></div>
+              <div class="formula-stat"><span>Total time</span><strong>About 45 min</strong></div>
+              <div class="formula-stat"><span>Oven</span><strong>350°F</strong></div>
+              <div class="formula-stat"><span>Bake time</span><strong>10–12 min</strong></div>
+            </div>
+          </section>
+
+          <section class="formula-section" id="pistachio-ingredients">
+            <h3 class="formula-section-title"><span>Ingredients</span> What You’ll Need</h3>
+            <div class="formula-panel">
+              <div class="formula-note">
+                <strong>Important ingredient notes:</strong><br/>
+                Edison all-purpose flour is recommended. Finely chop the maraschino cherries, wrap them in a double layer of paper towels, and squeeze firmly until no more liquid falls. Kirkland Signature roasted, salted pistachios work well. One drop of minty-green food coloring gives a natural holiday color.
+              </div>
+              <table class="ingredients-table">
+                <thead><tr><th>Ingredient</th><th>Amount</th></tr></thead>
+                <tbody>
+                  <tr><td>Unsalted butter, softened</td><td>1 cup</td></tr>
+                  <tr><td>Green food coloring, minty green</td><td>1 drop</td></tr>
+                  <tr><td>Almond extract</td><td>1 tsp</td></tr>
+                  <tr><td>Granulated sugar</td><td>½ cup / 100g</td></tr>
+                  <tr><td>Edison all-purpose flour</td><td>2 cups</td></tr>
+                  <tr><td>Salt</td><td>Scant 1 tsp</td></tr>
+                  <tr><td>Maraschino cherries, finely chopped and thoroughly dried</td><td>1 cup</td></tr>
+                  <tr><td>Roasted, salted pistachios, finely chopped</td><td>½ cup</td></tr>
+                  <tr><td>Mini chocolate chips</td><td>½ cup</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="formula-section" id="pistachio-steps">
+            <h3 class="formula-section-title"><span>Instructions</span> Step-by-Step Recipe</h3>
+
+            <details class="recipe-step" open>
+              <summary><span class="step-number">1</span>Cream Butter &amp; Flavoring</summary>
+              <p>Beat the softened butter, green food coloring, and almond extract in a large bowl until blended.</p>
+            </details>
+            <details class="recipe-step">
+              <summary><span class="step-number">2</span>Add Sugar</summary>
+              <p>Add the granulated sugar and beat until thoroughly combined.</p>
+            </details>
+            <details class="recipe-step">
+              <summary><span class="step-number">3</span>Mix in Flour &amp; Salt</summary>
+              <p>Add the flour and salt. Mix just until the dough comes together; it may still look slightly crumbly.</p>
+            </details>
+            <details class="recipe-step">
+              <summary><span class="step-number">4</span>Fold in Cherries, Pistachios &amp; Chocolate</summary>
+              <p>Gently fold in the thoroughly dried cherries, finely chopped pistachios, and mini chocolate chips.</p>
+            </details>
+            <details class="recipe-step">
+              <summary><span class="step-number">5</span>Chill the Dough</summary>
+              <p>Wrap the dough in plastic wrap and refrigerate for 1 hour.</p>
+            </details>
+            <details class="recipe-step">
+              <summary><span class="step-number">6</span>Preheat &amp; Prepare</summary>
+              <p>Preheat the oven to 350°F. Line a cookie sheet with parchment paper.</p>
+            </details>
+            <details class="recipe-step">
+              <summary><span class="step-number">7</span>Scoop &amp; Flatten</summary>
+              <p>Use a #60 disher or 1-tablespoon scoop to portion the dough. Roll each portion into a ball, cover it with a small square of parchment, and gently flatten with the bottom of a glass to about ½ inch thick.</p>
+            </details>
+            <details class="recipe-step">
+              <summary><span class="step-number">8</span>Bake &amp; Cool</summary>
+              <p>Bake for 10–12 minutes, until lightly set. Cool on the cookie sheet for 3–5 minutes, then transfer to a cooling rack and cool completely.</p>
+            </details>
+          </section>
+
+          <section class="formula-section" id="pistachio-tips">
+            <h3 class="formula-section-title"><span>Tips</span> Recipe Notes</h3>
+            <div class="formula-empty">
+              Drying the cherries thoroughly is essential—extra moisture can discolor and soften the dough. Keep the pistachios finely chopped for even distribution, and do not skip the one-hour chill.
+            </div>
+          </section>
+
+          <section class="formula-section" id="pistachio-supplies">
+            <h3 class="formula-section-title"><span>Equipment</span> Supplies &amp; Equipment</h3>
+            <div class="formula-empty">
+              Mixer, large mixing bowl, plastic wrap, parchment paper, cookie sheet, #60 disher or 1-tablespoon scoop, flat-bottomed glass, and cooling rack.
+            </div>
+          </section>
+
+          <section class="formula-share" id="pistachio-help">
+            <h3>🍞 You Baked It! <span>Share Your Cookies</span></h3>
+            <p>Take a photo of your finished cookies and share it with your Community Loaves hub, along with any notes from your bake.</p>
+          </section>
+        </main>
+
+        <aside class="formula-side">
+          <button class="formula-action" onclick="window.print()">▣ Print Recipe</button>
+          <button class="formula-action orange" onclick="window.open('https://communityloaves.org/flour-fundraiser', '_blank')">🌾 Order Your Flour</button>
+          <div class="formula-side-card">
+            <h4>Recipe Steps</h4>
+            <ol>
+              <li>Cream butter and flavoring</li>
+              <li>Add sugar</li>
+              <li>Mix in flour and salt</li>
+              <li>Fold in cherries, nuts, and chips</li>
+              <li>Chill for 1 hour</li>
+              <li>Preheat and prepare pan</li>
+              <li>Scoop and flatten</li>
+              <li>Bake and cool</li>
+            </ol>
+          </div>
+        </aside>
+      </div>
+
+      <section class="formula-section" id="pistachio-gallery" style="margin-top:36px;">
+        <h3 class="formula-section-title"><span>Gallery</span> Competition Photos</h3>
+        <div class="formula-gallery">
+          <figure>
+            <img src="2026 - Competition Recipes/06_Pistachio Cherry Cookie/Pistachio Cherry Cookie.png" alt="Baking Spirits Bright 2026 Pistachio Cherry Cookie winner graphic" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="2026 - Competition Recipes/06_Pistachio Cherry Cookie/IMG_5070.JPG" alt="Pistachio Cherry Cookies displayed with their competition entry card" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="2026 - Competition Recipes/06_Pistachio Cherry Cookie/Pistachio Cherry Cookie.jpg" alt="Close-up of three Pistachio Cherry Cookies on a white plate" loading="lazy" />
+          </figure>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────────────
+       SCREEN 14 — RECIPE PLACEHOLDER
   ───────────────────────────────────────────────────────────── -->
   <div class="screen" id="screen-recipe-placeholder">
     <button class="back-btn" id="recipePlaceholderBack" onclick="goTo('screen-all-recipes')">← Back</button>
@@ -2597,18 +3402,18 @@ const recipes = [
   },
   {
     id: 'special-holiday-cookies',
-    name: 'Maple Thumbprint Cookies',
+    name: 'Pistachio Cherry Cookies',
     category: 'Special Donations',
     filters: ['special', 'cookies', 'special-holiday'],
-    icon: '🍁',
-    img: 'images/maple-thumbprint.png',
+    icon: '🏆',
+    img: '2026 - Competition Recipes/06_Pistachio Cherry Cookie/Pistachio Cherry Cookie.jpg',
     tags: [
       { label: '🎄 Special Donation', cls: 'badge-green' },
       { label: '🍁 Holiday Cookies', cls: 'badge-gold' },
       { label: '2026', cls: 'badge-orange' }
     ],
     url: 'https://communityloaves.org',
-    placeholder: 'Maple Thumbprint Cookies recipe goes here.\n\nA warm, festive oat cookie filled with a pool of golden maple caramel — baked for special Community Loaves holiday donation events. Check the donation calendar for upcoming dates.'
+    placeholder: 'Pistachio Cherry Cookies\n\nThe official featured 2026 Community Loaves Holiday Cookie by Shannon McCullough of Team Kirkland Mother Ship - N. Rose Hill.'
   },
   {
     id: 'holiday-cookies-2025',
@@ -2642,6 +3447,631 @@ const recipes = [
   }
 ];
 
+const cookieContests = {
+  2026: {
+    intro: 'Meet the 2026 Star Baker and browse all 16 Jingle in July competition recipes.',
+    winnerBadge: '2026 Winner — Featured Recipe',
+    about: 'Community Loaves’ annual Baking Spirits Bright Holiday Cookie Competition helps select the featured cookie for the final donation of the year. Pistachio Cherry Cookies by Shannon McCullough was selected as the official 2026 featured Holiday Cookie. Pumpkin Bars earned the judges’ highest score, but its cream-cheese frosting requires refrigeration, and Chocolate Peppermint Thumbprints placed third.',
+    recipes: [
+      {
+        id: '2026-ginger-molasses',
+        name: 'Ginger Molasses Cookies',
+        baker: 'Anne Bryan',
+        hub: 'Ballard - Loyal Heights',
+        img: '2026 - Competition Recipes/01_Ginger Molasses Cookies/Ginger Molasses Cookies.jpg',
+        tags: ['spiced'],
+        description: 'Soft, crackled, sugar-rolled molasses cookies made with whole-wheat flour and a simple one-bowl dough.',
+        url: '2026 - Competition Recipes/01_Ginger Molasses Cookies/BSB2026_01_Ginger_Molasses_Cookies.docx'
+      },
+      {
+        id: '2026-easy-sugar',
+        name: 'Easy Sugar Cookies',
+        baker: 'Charlene Vojtilla',
+        hub: 'Portland - West',
+        img: '2026 - Competition Recipes/02_Easy Sugar Cookies/Easy Sugar Cookies.jpg',
+        tags: ['spiced'],
+        description: 'Foolproof family sugar cookies flavored with nutmeg and decorated with seasonal sparkling sugar.',
+        url: '2026 - Competition Recipes/02_Easy Sugar Cookies/BSB2026_02_Easy_Sugar_Cookies_Updated.docx'
+      },
+      {
+        id: '2026-belgian-butter',
+        name: 'Belgian Butter Cookies',
+        baker: 'Sonia Kunz',
+        hub: 'Mill Creek - Highlands',
+        img: '2026 - Competition Recipes/03_Belgian Butter Cookies/Belgian Butter Cookie.jpg',
+        tags: [],
+        description: 'Belgian family butter cookies with coconut and a fork-pressed finish; bake them soft or crisp.',
+        url: '2026 - Competition Recipes/03_Belgian Butter Cookies/BSB2026_03_Belgian_Butter_Cookies_Updated.docx'
+      },
+      {
+        id: '2026-fabulous-fudge-bars',
+        name: 'Fabulous Fudge Bars',
+        baker: 'Joanna Braden',
+        hub: 'Greenwood',
+        img: '2026 - Competition Recipes/04_Fabulous Fudge Bars/Fabulous Fudge Bars.jpg',
+        tags: ['chocolate'],
+        description: 'Oatmeal cookie bars layered with condensed-milk chocolate fudge and pecans.',
+        url: '2026 - Competition Recipes/04_Fabulous Fudge Bars/BSB2026_04_Fabulous_Fudge_Bars_UPDATE.docx'
+      },
+      {
+        id: '2026-bittersweet-shortbread',
+        name: 'Bittersweet Shortbread Cookies',
+        baker: 'Cheryl Richardson',
+        hub: 'Port Orchard',
+        img: '2026 - Competition Recipes/05_Bittersweet Shortbread Cookies/Bittersweet Shortbread Cookies.jpg',
+        tags: ['chocolate'],
+        description: 'Tender shortbread studded with bittersweet chocolate and toasted pecans.',
+        url: '2026 - Competition Recipes/05_Bittersweet Shortbread Cookies/BSB2026_05_Bittersweet_Shortbread_Cookies.docx'
+      },
+      {
+        id: '2026-pistachio-cherry',
+        name: 'Pistachio Cherry Cookies',
+        baker: 'Shannon McCullough',
+        hub: 'Kirkland Mother Ship - N. Rose Hill',
+        img: '2026 - Competition Recipes/06_Pistachio Cherry Cookie/Pistachio Cherry Cookie.jpg',
+        tags: ['winner', 'fruit', 'chocolate'],
+        winner: true,
+        rank: 1,
+        description: 'Festive green almond shortbread with maraschino cherries, salted pistachios, and mini chocolate chips.',
+        url: '2026 - Competition Recipes/06_Pistachio Cherry Cookie/BSB2026_06_Pistachio_Chocolate_Cherry_Cookies_UPDATED.docx'
+      },
+      {
+        id: '2026-spicy-molasses',
+        name: 'Spicy Molasses Cookies',
+        baker: 'Anne Heimlich',
+        hub: 'Portland - East',
+        img: '2026 - Competition Recipes/07_Spicy Molasses Cookies/Spicy Molasses Cookies.jpg',
+        tags: ['spiced'],
+        description: 'Whole-wheat molasses cookies with bloomed warm spices, crisp edges, soft centers, and turbinado crunch.',
+        url: '2026 - Competition Recipes/07_Spicy Molasses Cookies/BSB2026_07_Spicy_Molasses_Cookies_Updated.docx'
+      },
+      {
+        id: '2026-pumpkin-bars',
+        name: 'Pumpkin Bars',
+        baker: 'Jeanne Payne',
+        hub: 'Bainbridge - Battle Point Park',
+        img: '2026 - Competition Recipes/08_Pumpkin Bars/Pumpkin Bars.jpg',
+        tags: ['spiced'],
+        finalist: true,
+        badge: 'Judges’ High Score',
+        description: 'The judges’ highest-scoring recipe: spiced pumpkin sheet-cake bars topped with cream-cheese frosting.',
+        url: '2026 - Competition Recipes/08_Pumpkin Bars/BSB2026_08_Pumpkin_Bars.docx'
+      },
+      {
+        id: '2026-cranberry-snowflake',
+        name: 'Cranberry Snowflake Crisp',
+        baker: 'Paulina Huerta',
+        hub: 'San Diego',
+        img: '2026 - Competition Recipes/09_Cranberry Snowflake Crisp/Cranberry Snowflake Crisp.jpg',
+        tags: ['fruit'],
+        description: 'No-bake marshmallow crisps balancing buttery Ritz crackers, milk powder, and tart dried cranberries.',
+        url: '2026 - Competition Recipes/09_Cranberry Snowflake Crisp/BSB2026_09_Cranberry_Snowflake_Crisp.docx'
+      },
+      {
+        id: '2026-gingerbread-biscotti',
+        name: 'Holiday Gingerbread Biscotti',
+        baker: 'Niko Okamoto',
+        hub: 'Columbia City - Dunlap',
+        img: '2026 - Competition Recipes/10_Holiday Gingerbread Biscotti/Holiday Gingerbread Biscotti.jpg',
+        tags: ['spiced'],
+        description: 'Gingerbread biscotti with molasses, candied ginger, raisins, white icing, and crushed peppermint.',
+        url: '2026 - Competition Recipes/10_Holiday Gingerbread Biscotti/BSB2026_10_Holiday_Gingerbread_Biscotti_UPDATE2.docx'
+      },
+      {
+        id: '2026-chocolate-peppermint-thumbprints',
+        name: 'Chocolate Peppermint Thumbprints',
+        baker: 'Susan Kearns',
+        hub: 'West Seattle',
+        img: '2026 - Competition Recipes/11_Chocolate Peppermint Thumbprints/Chocolate Peppermint Thumbprints.jpg',
+        tags: ['chocolate', 'spiced'],
+        finalist: true,
+        rank: 3,
+        badge: 'Third Place',
+        description: 'Sugar-rolled cocoa cookies finished with mint-truffle or candy-cane Hershey’s Kisses.',
+        url: '2026 - Competition Recipes/11_Chocolate Peppermint Thumbprints/BSB2026_11_Chocolate_Peppermint_Thumbprints_Update.docx'
+      },
+      {
+        id: '2026-orange-honey-pistachio',
+        name: 'Sweet and Salty Orange, Honey and Pistachio Cookie',
+        baker: 'Angela Emerton',
+        hub: 'Redmond - Education Hill',
+        img: '2026 - Competition Recipes/12_Sweet and Salty Orange, Honey and Pistachio Cookie/Sweet and Salty Orange, Honey and Pistachio Cookie.jpg',
+        tags: ['fruit', 'chocolate'],
+        description: 'Middle Eastern-inspired brown-butter cookies with orange, honey, pistachios, sea salt, and white chocolate.',
+        url: '2026 - Competition Recipes/12_Sweet and Salty Orange, Honey and Pistachio Cookie/BSB2026_12_Sweet_Salty_Orange_Honey_Pistachio_Cookie.docx'
+      },
+      {
+        id: '2026-cranberry-orange-squares',
+        name: 'Merry and Bright Cranberry Orange Squares',
+        baker: 'Elaine Sawyer',
+        hub: 'Idaho Falls - Ammon',
+        img: '2026 - Competition Recipes/13_Merry and Bright Cranberry Orange Squares/Merry and Bright Cranberry Orange Squares.jpg',
+        tags: ['fruit'],
+        description: 'Tender cookie squares packed with fresh cranberries, orange juice and zest, and citrus sugar.',
+        url: '2026 - Competition Recipes/13_Merry and Bright Cranberry Orange Squares/BSB2026_13_Merry_and_Bright_Cranberry_Orange_Updated.docx'
+      },
+      {
+        id: '2026-janes-walnut',
+        name: 'Jane’s Walnut Cookies',
+        baker: 'Sharon Heiber',
+        hub: 'Whidbey - Clinton',
+        img: '2026 - Competition Recipes/14_Jane_s Walnut Cookies/Jane_s Walnut Cookies.jpg',
+        tags: [],
+        description: 'Rich, lightly sweet slice-and-bake cookies with cream cheese and toasted walnuts.',
+        url: '2026 - Competition Recipes/14_Jane_s Walnut Cookies/BSB2026_14_Janes_Walnut_Cookies_Updated.docx'
+      },
+      {
+        id: '2026-cowboy-cookie',
+        name: 'Laura Bush’s Cowboy Cookie',
+        baker: 'Laura Juell',
+        hub: 'Federal Way - Lakeland South',
+        img: '2026 - Competition Recipes/15_Laura Bush_s Cowboy Cookie/Laura Bush_s Cowboy Cookie.jpg',
+        tags: ['chocolate', 'spiced'],
+        description: 'Large pantry-friendly cookies loaded with chocolate chips, oats, coconut, pecans, and cinnamon.',
+        url: '2026 - Competition Recipes/15_Laura Bush_s Cowboy Cookie/BSB2026_15_Laura_Bushs_Cowboy_Cookie_UPDATED.docx'
+      },
+      {
+        id: '2026-extreme-chocolate',
+        name: 'Extreme Chocolate Cookie',
+        baker: 'Wendy Jordan',
+        hub: 'Shoreline',
+        img: '2026 - Competition Recipes/16_Extreme Chocolate Cookie/IMG_5103.JPG',
+        tags: ['chocolate'],
+        description: 'An emergency-entry chocolate cookie added to the 2026 competition on July 12.'
+      }
+    ]
+  },
+  2025: {
+    intro: 'Meet the 2025 winning baker and explore every recipe submitted to the contest.',
+    recipes: [
+      {
+        id: '2025-brown-butter-cranberry',
+        name: 'Brown Butter Cranberry Oat Cookies',
+        baker: 'Maya Thompson',
+        hub: 'Sample Hub',
+        bakerPhoto: 'https://i.pravatar.cc/120?img=47',
+        img: 'images/maple-thumbprint.png',
+        tags: ['winner', 'fruit'],
+        winner: true,
+        description: 'Toasty brown butter, tart cranberries, and a touch of orange in a tender oatmeal cookie.'
+      },
+      {
+        id: '2025-peppermint-crinkle',
+        name: 'Chocolate Peppermint Crinkle Cookies',
+        baker: 'Daniel Kim',
+        hub: 'Sample Hub',
+        bakerPhoto: 'https://i.pravatar.cc/120?img=12',
+        img: 'images/energy-cookie-choc.png?v=2',
+        tags: ['chocolate'],
+        description: 'Deep chocolate cookies with crisp peppermint and a snowy powdered-sugar finish.'
+      },
+      {
+        id: '2025-orange-cardamom',
+        name: 'Orange Cardamom Snowballs',
+        baker: 'Sofia Ramirez',
+        hub: 'Sample Hub',
+        bakerPhoto: 'https://i.pravatar.cc/120?img=32',
+        img: 'images/energy-cookie-blueberry.png?v=2',
+        tags: ['fruit', 'spiced'],
+        description: 'Buttery snowball cookies brightened with orange zest and warm cardamom.'
+      },
+      {
+        id: '2025-ginger-molasses',
+        name: 'Soft Ginger Molasses Stars',
+        baker: 'Evelyn Brooks',
+        hub: 'Sample Hub',
+        bakerPhoto: 'https://i.pravatar.cc/120?img=44',
+        img: 'images/maple-thumbprint.png',
+        tags: ['spiced'],
+        description: 'Soft, chewy molasses cookies layered with ginger, cinnamon, and clove.'
+      },
+      {
+        id: '2025-cherry-pistachio',
+        name: 'Cherry Pistachio Oat Cookies',
+        baker: 'Marcus Lee',
+        hub: 'Sample Hub',
+        bakerPhoto: 'https://i.pravatar.cc/120?img=68',
+        img: 'images/energy-cookie-blueberry.png?v=2',
+        tags: ['fruit'],
+        description: 'A colorful holiday oatmeal cookie with tart cherries and roasted pistachios.'
+      }
+    ]
+  },
+  2024: {
+    intro: 'Meet the 2024 winning baker and explore every recipe submitted to the contest.',
+    recipes: [
+      {
+        id: '2024-maple-thumbprint',
+        name: 'Spiced Maple Thumbprint Cookies',
+        baker: 'Nora Patel',
+        hub: 'Sample Hub',
+        bakerPhoto: 'https://i.pravatar.cc/120?img=45',
+        img: 'images/maple-thumbprint.png',
+        tags: ['winner', 'spiced'],
+        winner: true,
+        description: 'A warmly spiced oat cookie filled with a glossy pool of maple caramel.'
+      },
+      {
+        id: '2024-chocolate-hazelnut',
+        name: 'Dark Chocolate Hazelnut Cookies',
+        baker: 'James Wilson',
+        hub: 'Sample Hub',
+        bakerPhoto: 'https://i.pravatar.cc/120?img=11',
+        img: 'images/energy-cookie-choc.png?v=2',
+        tags: ['chocolate'],
+        description: 'Rich cocoa cookies packed with toasted hazelnuts and dark chocolate pieces.'
+      },
+      {
+        id: '2024-cranberry-rosemary',
+        name: 'Cranberry Rosemary Shortbread',
+        baker: 'Grace Chen',
+        hub: 'Sample Hub',
+        bakerPhoto: 'https://i.pravatar.cc/120?img=49',
+        img: 'images/energy-cookie-blueberry.png?v=2',
+        tags: ['fruit'],
+        description: 'Crisp shortbread with ruby cranberries and a subtle savory rosemary note.'
+      },
+      {
+        id: '2024-apple-cider',
+        name: 'Apple Cider Oat Cookies',
+        baker: 'Theo Martin',
+        hub: 'Sample Hub',
+        bakerPhoto: 'https://i.pravatar.cc/120?img=15',
+        img: 'images/maple-thumbprint.png',
+        tags: ['fruit', 'spiced'],
+        description: 'Chewy oat cookies inspired by mulled cider, with apple, cinnamon, and nutmeg.'
+      },
+      {
+        id: '2024-lemon-ginger',
+        name: 'Lemon Ginger Sparkle Cookies',
+        baker: 'Amelia Foster',
+        hub: 'Sample Hub',
+        bakerPhoto: 'https://i.pravatar.cc/120?img=25',
+        img: 'images/energy-cookie-blueberry.png?v=2',
+        tags: ['fruit', 'spiced'],
+        description: 'Bright lemon cookies with candied ginger and a crisp sparkling-sugar edge.'
+      }
+    ]
+  },
+  2022: {
+    intro: 'Meet the 2022 Holiday Signature winner and browse all 12 recipes from the competition.',
+    about: 'Twelve contestants and 12 judges participated in the 2022 holiday cookie competition. Each cookie was independently scored by every judge, with taste and appearance weighted most heavily. Michele Stutzman earned the 2022 Holiday Signature with her Chocolate Peppermint Sandwich Cookie, followed by Enzo Chickadel and Luca Chickadel.',
+    sourceUrl: 'https://communityloaves.org/2022/12/2022-holiday-cookie/',
+    recipes: [
+      {
+        id: '2022-chocolate-peppermint-sandwich',
+        name: 'Chocolate Peppermint Sandwich Cookie',
+        baker: 'Michele Stutzman',
+        hub: 'Ravenna - Wedgewood',
+        bakerPhoto: 'https://communityloaves.org/wp-content/uploads/2022/12/Michele-and-cookies-1-450x450.png',
+        img: 'https://communityloaves.org/wp-content/uploads/2022/12/Michele-and-cookies-1-450x450.png',
+        imagePosition: 'center top',
+        tags: ['winner', 'chocolate'],
+        winner: true,
+        rank: 1,
+        description: 'The winning 2022 Holiday Signature: a festive chocolate sandwich cookie with peppermint.',
+        url: 'https://communityloaves.org/wp-content/uploads/2022/11/10_Chocolate-Peppermint-Sandwich-Cookie_M-Stultzman-Final.pdf'
+      },
+      {
+        id: '2022-pumpkin-ginger-molasses',
+        name: 'Pumpkin Ginger Molasses',
+        baker: 'Enzo Chickadel',
+        hub: 'Shoreline',
+        img: 'https://communityloaves.org/wp-content/uploads/2022/12/7_Pumpkin-Ginger-Molasses-Cookies-IMG_7357-scaled-300x300.jpeg',
+        tags: ['spiced'],
+        rank: 2,
+        description: 'The second-place 2022 recipe, pairing pumpkin with warm ginger and molasses.',
+        url: 'https://communityloaves.org/wp-content/uploads/2022/12/7_Pumpkin-Ginger-Molasses_E-Chickadel.docx'
+      },
+      {
+        id: '2022-oma-opa-shortbread',
+        name: 'Oma & Opa’s Holiday Chocolate Chip Shortbread',
+        baker: 'Luca Chickadel',
+        hub: 'Shoreline',
+        img: 'https://communityloaves.org/wp-content/uploads/2022/12/6_Oma-_-Opas-Holiday-Chocolate-Chip-Shortbread-IMG_7361-scaled-300x300.jpeg',
+        tags: ['chocolate'],
+        rank: 3,
+        description: 'The third-place 2022 recipe: a festive chocolate chip shortbread.',
+        url: 'https://communityloaves.org/wp-content/uploads/2022/12/6_Oma-and-Opa_s-Holiday-Chocolate-Chip-Shortbread_L-Chickadel.docx'
+      },
+      {
+        id: '2022-cranberry-joy',
+        name: 'Cranberry Joy Cookies',
+        baker: 'Jean Stewart',
+        hub: 'Olympia - Westside',
+        img: 'https://communityloaves.org/wp-content/uploads/2022/12/1_Cranberry-Joy-Cookies-IMG_7384-edited-1-700x700.jpeg',
+        tags: ['fruit'],
+        description: 'A bright cranberry cookie submitted to the 2022 competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2022/12/1_Cranberry-Joy_Item-1_J-Stewart.pdf'
+      },
+      {
+        id: '2022-hobnob-chocolate',
+        name: 'Hobnob Chocolate Cookie',
+        baker: 'Teresa Osborn',
+        hub: 'Greenwood',
+        img: 'https://communityloaves.org/wp-content/uploads/2022/12/2_The-Hobnob_IMG_7309-1-300x300.jpeg',
+        tags: ['chocolate'],
+        description: 'A chocolate-forward cookie submitted to the 2022 competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2022/12/2_Hobnob-Chocolate-Cookie.docx'
+      },
+      {
+        id: '2022-good-cookie',
+        name: 'The Good Cookie',
+        baker: 'Marcella Anderson',
+        hub: 'Gig Harbor',
+        img: 'https://communityloaves.org/wp-content/uploads/2022/12/3_The-Good-Cookie-IMG_7372-scaled-300x300.jpeg',
+        tags: ['spiced'],
+        description: 'A festive entry from the 2022 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2022/12/3_The-Good-Cookie-Recipe_Anderson.docx'
+      },
+      {
+        id: '2022-holiday-chocolate-chip',
+        name: 'Holiday Chocolate Chip Cookie',
+        baker: 'Erika Bowles',
+        hub: 'Gig Harbor',
+        img: 'https://communityloaves.org/wp-content/uploads/2022/12/4_Holiday-Chocolate-Chip-IMG_7369-edited-scaled-700x700.jpeg',
+        tags: ['chocolate'],
+        description: 'A holiday take on the classic chocolate chip cookie.',
+        url: 'https://communityloaves.org/wp-content/uploads/2022/12/4_Holiday-Chocolate-Chip-Cookie_E_Bowles.docx'
+      },
+      {
+        id: '2022-nutcracker-sweets',
+        name: 'Nutcracker Sweets',
+        baker: 'Cathy Martin',
+        hub: 'Shoreline',
+        img: 'https://communityloaves.org/wp-content/uploads/2022/12/5_Nutcracker-Sweets-IMG_7364-scaled-300x300.jpeg',
+        tags: ['spiced'],
+        description: 'A festive cookie entry inspired by the holiday classic.',
+        url: 'https://communityloaves.org/wp-content/uploads/2022/12/Nutcracker-recipe.pdf'
+      },
+      {
+        id: '2022-chocolate-chip-almond-cherry',
+        name: 'Chocolate Chip, Almond, Cherry Cookies',
+        baker: 'Ginger Petersen',
+        hub: 'Bainbridge',
+        img: 'https://communityloaves.org/wp-content/uploads/2022/12/8_Holiday-Chocolate-Chip-Cherry-Cookie-IMG_7355-scaled-300x300.jpeg',
+        tags: ['chocolate', 'fruit'],
+        description: 'Chocolate chips, almonds, and cherries come together in this holiday entry.',
+        url: 'https://communityloaves.org/wp-content/uploads/2022/12/Chocolate-Chip-Almond-Cheery-Cookies-recipe.pdf'
+      },
+      {
+        id: '2022-dark-horse',
+        name: 'Dark Horse Cookie',
+        baker: 'Matthew Mizulo',
+        hub: 'Kirkland - Mothership',
+        img: 'https://communityloaves.org/wp-content/uploads/2022/12/9_Dark-Horse-Savory-Thumbprint_IMG_7352-scaled-300x300.jpeg',
+        tags: ['spiced'],
+        description: 'A savory thumbprint cookie with a distinctive holiday flavor.',
+        url: 'https://communityloaves.org/wp-content/uploads/2022/12/9_Savory-Thumbprint-Cookies-2.docx'
+      },
+      {
+        id: '2022-south-african-herzoggies',
+        name: 'South African Herzoggies with a Pacific Northwest Twist',
+        baker: 'Milla McLachlan',
+        hub: 'Portland - Villa Ridge',
+        img: 'https://communityloaves.org/wp-content/uploads/2022/12/11_Hertzoggies-IMG_7346-edited-scaled-700x700.jpeg',
+        tags: ['fruit'],
+        description: 'Traditional South African jam tartlets reimagined with a Pacific Northwest twist.',
+        url: 'https://communityloaves.org/wp-content/uploads/2022/12/11_Milla_-Hertzoggies-with-a-twist.docx'
+      },
+      {
+        id: '2022-chocolate-peppermint-thumbprint',
+        name: 'Chocolate Peppermint Thumbprint',
+        baker: 'Mary Stadler',
+        hub: 'Bellingham - Southhill',
+        img: 'https://communityloaves.org/wp-content/uploads/2022/12/12_Chocolate-Peppermint-Thumbprint-Cookies-IMG_7340-edited-scaled-700x700.jpeg',
+        tags: ['chocolate'],
+        description: 'A chocolate thumbprint cookie finished with festive peppermint.',
+        url: 'https://communityloaves.org/wp-content/uploads/2022/12/12_Chocolate-Peppermint-Thumbprint_m_schwartz.docx'
+      }
+    ]
+  },
+  2023: {
+    intro: 'Meet the 2023 Star Baker and browse all 19 recipes submitted from across the Community Loaves region.',
+    about: 'What an incredible competition! Nineteen contestants from across the Community Loaves region submitted an array of holiday cookies in hopes of becoming the 2023 Star Baker. Fifteen volunteer judges scored the entries with extra weight given to taste and ease. Anna Fine of Team Kirkland - Juanita earned the crown with Holiday Shortbread Squares, with Cathy Martin and Mary Pacher rounding out the top three.',
+    sourceUrl: 'https://communityloaves.org/2023/11/baking-spirits-bright-2023-2024/',
+    recipes: [
+      {
+        id: '2023-holiday-shortbread-squares',
+        name: 'Holiday Shortbread Squares',
+        baker: 'Anna Fine',
+        hub: 'Kirkland - Juanita',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/close-up-450x450.png',
+        tags: ['winner'],
+        winner: true,
+        rank: 1,
+        description: 'The 2023 Baking Spirits Bright winner and crowning Star Baker recipe.',
+        url: 'https://communityloaves.org/2023/11/baking-spirits-bright-2023-2024/'
+      },
+      {
+        id: '2023-thumbprint-cookies',
+        name: 'Thumbprint Cookies',
+        baker: 'Cathy Martin',
+        hub: 'Shoreline - Richmond Beach',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-3_Thumbprint-Cookies_1-1800x1800.jpeg',
+        tags: ['fruit'],
+        rank: 2,
+        description: 'The second-place recipe in the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-3_Thumbprint-Cookies.pdf'
+      },
+      {
+        id: '2023-rosenmunnar',
+        name: 'Rosenmunnar',
+        baker: 'Mary Pacher',
+        hub: 'Port Townsend - Cape George',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-1_Rosenmunnar-1800x1800.jpeg',
+        tags: ['fruit'],
+        rank: 3,
+        description: 'The third-place recipe in the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-1_Rosenmunnar-1.pdf'
+      },
+      {
+        id: '2023-fab-four-slice-bake',
+        name: 'Fab Four Slice and Bake Cookie',
+        baker: 'Karin Chickadel',
+        hub: 'Shoreline - Richmond Beach',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-2_Fab-Four-Slice-and-Bake-Cookie-1800x1800.jpeg',
+        tags: ['spiced'],
+        description: 'A contending recipe from the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-2_Fab-Four-Slice-and-Bake-Cookie.pdf'
+      },
+      {
+        id: '2023-cherry-nib-cornflake',
+        name: 'Cherry Nib Cornflake Cookies',
+        baker: 'Penny Hazelton',
+        hub: 'Bothell',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-14_Cherry-Nib-Cornflake-Cookies_2-1800x1800.jpeg',
+        tags: ['fruit', 'chocolate'],
+        description: 'A contending recipe from the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-14_Cherry-Nib-Cornflake-Cookies.pdf'
+      },
+      {
+        id: '2023-dark-chocolate-orange-cranberry',
+        name: 'Dark Chocolate Orange Cranberry Cookies',
+        baker: 'Joy Cooper',
+        hub: 'Capitol Hill',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-5_Dark-Chocolate-Orange-Cranberry-Cookies-1800x1800.jpeg',
+        tags: ['fruit', 'chocolate'],
+        description: 'A contending recipe from the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-5_Dark-Chocolate-Orange-Cranberry-Cookies.pdf'
+      },
+      {
+        id: '2023-rock-star-rocky-road',
+        name: 'Rock Star Rocky Road',
+        baker: 'Gail Danforth',
+        hub: 'Redmond',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-10_ROCK-STAR-ROCKY-ROAD_2-1800x1800.jpeg',
+        tags: ['chocolate'],
+        description: 'A contending recipe from the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-10_ROCK-STAR-ROCKY-ROAD.pdf'
+      },
+      {
+        id: '2023-hello-dolly',
+        name: 'Hello Dolly Cookies',
+        baker: 'Jolyn Leslie',
+        hub: 'Federal Way',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-15_Hello-Dolly-Cookies_2-1800x1800.jpeg',
+        tags: ['chocolate'],
+        description: 'A contending recipe from the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-15_Hello-Dolly-Cookies.pdf'
+      },
+      {
+        id: '2023-cranberry-orange-shortbread',
+        name: 'Cranberry Orange Shortbread Cookie',
+        baker: 'Mitzi Adler',
+        hub: 'Sammamish',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-8_Cranberry-Orange-Shortbread-Cookie_1-1800x1800.jpeg',
+        tags: ['fruit'],
+        description: 'A contending recipe from the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-8_Cranberry-Orange-Shortbread-Cookie.pdf'
+      },
+      {
+        id: '2023-pistachio-drop',
+        name: 'Pistachio Drop Cookies',
+        baker: 'Ginger Petersen',
+        hub: 'Bainbridge - Battle Point Park',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-9_Pistachio-Drop-Cookies-1800x1800.jpeg',
+        tags: ['spiced'],
+        description: 'A contending recipe from the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-9_Pistachio-Drop-Cookies.pdf'
+      },
+      {
+        id: '2023-community-holiday',
+        name: 'Community Holiday Cookie',
+        baker: 'Kirsten Kaplan',
+        hub: 'Kirkland Mothership',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-6_Community-Holiday-Cookie-1800x1800.jpeg',
+        tags: ['spiced'],
+        description: 'A contending recipe from the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-6_Community-Holiday-Cookie.pdf'
+      },
+      {
+        id: '2023-turkish-ginger-lime',
+        name: 'Turkish Ginger Lime Cookies',
+        baker: 'Randy Cummings',
+        hub: 'Federal Way',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-7_Turkish-Ginger-Lime-Cookie-1800x1800.jpeg',
+        tags: ['fruit', 'spiced'],
+        description: 'A contending recipe from the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-7_Turkish-Ginger-Lime-Cookie.docx.pdf'
+      },
+      {
+        id: '2023-alfajores',
+        name: 'Alfajores',
+        baker: 'Cecelia Wogan-Silva',
+        hub: 'Oakland',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-13_La-Familia-Peruvian-Alfajores_6-1800x1800.jpeg',
+        tags: ['spiced'],
+        description: 'A contending recipe from the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-13_La-Familia-Peruvian-Alfajores.pdf'
+      },
+      {
+        id: '2023-soft-chewy-cranberry-orange',
+        name: 'Soft and Chewy Cranberry Orange Cookies',
+        baker: 'Donna Blankinship',
+        hub: 'Shoreline - Richmond Beach',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-12_Soft-and-Chewy-Cranberry-Orange-Cookies._1-1800x1800.jpeg',
+        tags: ['fruit'],
+        description: 'A contending recipe from the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-12_Soft-and-Chewy-Cranberry-Orange-Cookies.pdf'
+      },
+      {
+        id: '2023-goody-goody-gumdrops',
+        name: 'Goody Goody Gumdrops',
+        baker: 'Shannon McCullough',
+        hub: 'Kirkland Mothership',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-4_Goody-Goody-Gumdrops_2-1800x1800.jpeg',
+        tags: ['fruit'],
+        description: 'A contending recipe from the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-4_Goody-Goody-Gumdrops.pdf'
+      },
+      {
+        id: '2023-lemon-squares',
+        name: 'Lemon Squares, French Style',
+        baker: 'Judith Smith',
+        hub: 'Wedgewood',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-17_Lemon-Squares-French-Style_2-1800x1800.jpeg',
+        tags: ['fruit'],
+        description: 'A contending recipe from the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-17_Lemon-Squares-French-Style.pdf'
+      },
+      {
+        id: '2023-christmas-morning',
+        name: 'Christmas Morning Cookies',
+        baker: 'Breanna Hott',
+        hub: 'Enumclaw',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-16_Christmas-Morning-Cookies-1800x1800.jpeg',
+        tags: ['spiced'],
+        description: 'A contending recipe from the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-16_Christmas-Morning-Cookies.pdf'
+      },
+      {
+        id: '2023-sally-pecan',
+        name: 'Sally’s Favorite Pecan Cookies',
+        baker: 'Ken Roscoe',
+        hub: 'Greenwood',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-18_Sally_s-Favorite_Pecan-Cookies_2-1800x1800.jpeg',
+        tags: ['spiced'],
+        description: 'A contending recipe from the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-18_Sallys-Favorite_Pecan-Cookies-w_3-sized-batches.pdf'
+      },
+      {
+        id: '2023-brown-butter-dulce',
+        name: 'Brown Butter Dulce Delights',
+        baker: 'Vanessa Galasso',
+        hub: 'Central',
+        img: 'https://communityloaves.org/wp-content/uploads/2023/11/Cookie-19_Browned-Butter-Dulce-Delights_5.jpeg-1800x1800.jpeg',
+        tags: ['spiced'],
+        description: 'A contending recipe from the 2023 Baking Spirits Bright competition.',
+        url: 'https://communityloaves.org/wp-content/uploads/2023/11/Baker-19_Browned-Butter-Dulce-Delights.pdf'
+      }
+    ]
+  }
+};
+
+let activeContestYear = 2025;
+let activeContestFilter = 'all';
+
 // ─── NAVIGATION ──────────────────────────────────────────────────
 function goTo(screenId) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -2662,6 +4092,182 @@ function goToSpecialFilter(filter) {
   goTo('screen-all-recipes');
 }
 
+function openPistachioRecipe(source = 'contest') {
+  const backButton = document.getElementById('pistachioRecipeBack');
+  if (source === 'holiday') {
+    backButton.textContent = '← Back to Holiday Cookies';
+    backButton.onclick = () => goTo('screen-holiday-cookies');
+  } else if (source === 'all-recipes') {
+    backButton.textContent = '← Back to All Recipes';
+    backButton.onclick = () => goTo('screen-all-recipes');
+  } else if (source === 'contest-all') {
+    backButton.textContent = '← Back to All Competition Recipes';
+    backButton.onclick = () => openAllCookieContests();
+  } else {
+    backButton.textContent = '← Back to 2026 Competition';
+    backButton.onclick = () => openCookieContest(2026);
+  }
+  goTo('screen-pistachio-cherry-recipe');
+}
+
+function openCookieContest(year) {
+  const contest = cookieContests[year];
+  if (!contest) return;
+
+  activeContestYear = year;
+  activeContestFilter = 'all';
+  document.getElementById('contestWinner').classList.toggle('compact', year === 2026);
+  document.getElementById('contestYearFilters').style.display = 'none';
+  document.getElementById('contestGridHeading').textContent = 'More Baking Spirits Bright Recipes';
+  document.getElementById('contestTitle').textContent = `${year} Baking Spirits Bright`;
+  document.getElementById('contestSubtitle').textContent = contest.intro;
+  document.getElementById('contestSearch').value = '';
+  document.querySelectorAll('#contestFilters .filter-chip').forEach(chip => {
+    chip.classList.toggle('active', chip.dataset.contestFilter === 'all');
+  });
+
+  const winner = contest.recipes.find(recipe => recipe.winner);
+  document.getElementById('contestWinner').innerHTML = winner ? `
+    <img src="${winner.img}" alt="${winner.name}" class="contest-winner-img" style="object-position:${winner.imagePosition || 'center'};" />
+    <div class="contest-winner-body">
+      <span class="contest-winner-badge">🏆 ${contest.winnerBadge || `${year} Star Baker`}</span>
+      <h3 class="contest-winner-title">${winner.name}</h3>
+      <p class="contest-winner-desc">${winner.description}</p>
+      <div class="contest-baker">
+        <img src="${winner.bakerPhoto || 'images/cl-logo.png'}" alt="" class="contest-baker-photo" />
+        <div><span>Created By</span><strong>${winner.baker}, Team ${winner.hub}</strong></div>
+      </div>
+      <button class="btn-primary" style="align-self:flex-start;margin-top:18px;" onclick="showContestRecipe('${winner.id}')">View Winning Recipe →</button>
+    </div>
+  ` : '';
+
+  const about = document.getElementById('contestAbout');
+  if (contest.about) {
+    about.innerHTML = `<strong>About Baking Spirits Bright ${year}</strong>${contest.about}${contest.sourceUrl ? ` <a href="${contest.sourceUrl}" target="_blank" rel="noopener" style="color:var(--teal-dk);font-weight:700;">Read the original competition post →</a>` : ''}`;
+    about.style.display = 'block';
+  } else {
+    about.innerHTML = '';
+    about.style.display = 'none';
+  }
+
+  filterContestRecipes();
+  goTo('screen-cookie-contest');
+}
+
+function openAllCookieContests() {
+  activeContestYear = 'all';
+  activeContestFilter = 'all';
+  document.getElementById('contestTitle').textContent = 'All Baking Spirits Bright Recipes';
+  document.getElementById('contestSubtitle').textContent =
+    'Search every competition recipe and browse winners and finalists from every year.';
+  document.getElementById('contestSearch').value = '';
+  document.getElementById('contestYearFilters').style.display = 'inline-flex';
+  document.getElementById('contestGridHeading').textContent = 'All Competition Recipes';
+  document.getElementById('contestAbout').innerHTML = '';
+  document.getElementById('contestAbout').style.display = 'none';
+  document.getElementById('contestWinner').innerHTML = '';
+  document.querySelectorAll('#contestFilters .filter-chip').forEach(chip => {
+    chip.classList.toggle('active', chip.dataset.contestFilter === 'all');
+  });
+  filterContestRecipes();
+  goTo('screen-cookie-contest');
+}
+
+function setContestFilter(filter, btn) {
+  activeContestFilter = filter;
+  document.querySelectorAll('#contestFilters .filter-chip').forEach(chip => chip.classList.remove('active'));
+  btn.classList.add('active');
+  filterContestRecipes();
+}
+
+function filterContestRecipes() {
+  const isAllYears = activeContestYear === 'all';
+  const contest = isAllYears
+    ? {
+        recipes: Object.entries(cookieContests).flatMap(([year, data]) =>
+          data.recipes.map(recipe => ({ ...recipe, year: Number(year) }))
+        )
+      }
+    : cookieContests[activeContestYear];
+  if (!contest) return;
+
+  const search = document.getElementById('contestSearch').value.trim().toLowerCase();
+  const filtered = contest.recipes.filter(recipe => {
+    const searchable = `${recipe.year || activeContestYear} ${recipe.name} ${recipe.baker} ${recipe.hub} ${recipe.description} ${recipe.tags.join(' ')}`.toLowerCase();
+    const matchesSearch = searchable.includes(search);
+    const yearFilter = activeContestFilter.startsWith('year-')
+      ? Number(activeContestFilter.replace('year-', ''))
+      : null;
+    const matchesFilter =
+      activeContestFilter === 'all' ||
+      recipe.tags.includes(activeContestFilter) ||
+      (activeContestFilter === 'finalist' && (recipe.finalist || recipe.rank > 1)) ||
+      (yearFilter && recipe.year === yearFilter);
+    return matchesSearch && matchesFilter;
+  });
+
+  document.getElementById('contestResultsCount').textContent =
+    `Showing ${filtered.length} of ${contest.recipes.length} recipes`;
+
+  const featuredWinner = isAllYears ? null : filtered.find(recipe => recipe.winner);
+  const gridRecipes = isAllYears ? filtered : filtered.filter(recipe => !recipe.winner);
+  const winnerEl = document.getElementById('contestWinner');
+  winnerEl.style.display = featuredWinner ? 'grid' : 'none';
+
+  const gridHeading = document.getElementById('contestGridHeading');
+  gridHeading.style.display = gridRecipes.length ? 'block' : 'none';
+
+  document.getElementById('contestRecipesGrid').innerHTML = gridRecipes.length ? gridRecipes.map(recipe => `
+    <article class="recipe-item contest-recipe-card${recipe.winner ? ' winner' : ''}" onclick="showContestRecipe('${recipe.id}')">
+      ${recipe.winner ? `<span class="contest-card-badge">🏆 ${isAllYears ? `${recipe.year} ` : ''}Winner</span>` : recipe.badge ? `<span class="contest-card-badge">${recipe.badge}</span>` : recipe.rank ? `<span class="contest-card-badge">#${recipe.rank} Finalist</span>` : ''}
+      <img src="${recipe.img}" alt="${recipe.name}" class="recipe-item-img" />
+      <div class="recipe-item-body">
+        <div class="recipe-item-title">${recipe.name}</div>
+        <div class="recipe-item-cat">${isAllYears ? `${recipe.year} · ` : ''}${recipe.tags.filter(tag => tag !== 'winner').map(tag => tag[0].toUpperCase() + tag.slice(1)).join(' · ')}</div>
+        <div class="contest-baker">
+          <img src="${recipe.bakerPhoto || 'images/cl-logo.png'}" alt="" class="contest-baker-photo" />
+          <div><span>Created By</span><strong>${recipe.baker}, Team ${recipe.hub}</strong></div>
+        </div>
+      </div>
+    </article>
+  `).join('') : filtered.length ? '' : '<div class="contest-empty">No Baking Spirits Bright recipes match your search.</div>';
+}
+
+function showContestRecipe(recipeId) {
+  if (recipeId === '2026-pistachio-cherry') {
+    openPistachioRecipe(activeContestYear === 'all' ? 'contest-all' : 'contest');
+    return;
+  }
+
+  const isAllYears = activeContestYear === 'all';
+  const match = isAllYears
+    ? Object.entries(cookieContests)
+        .flatMap(([year, data]) => data.recipes.map(recipe => ({ recipe, year: Number(year) })))
+        .find(item => item.recipe.id === recipeId)
+    : { recipe: cookieContests[activeContestYear] &&
+        cookieContests[activeContestYear].recipes.find(item => item.id === recipeId),
+        year: activeContestYear };
+  const recipe = match && match.recipe;
+  if (!recipe) return;
+  const recipeYear = match.year;
+
+  document.getElementById('recipePlaceholderIcon').textContent = recipe.winner ? '🏆' : '🍪';
+  document.getElementById('recipePlaceholderTitle').textContent = recipe.name;
+  document.getElementById('recipePlaceholderText').innerHTML =
+    `${recipe.description}<br/><br/><strong>Created By ${recipe.baker}, Team ${recipe.hub}</strong><br/>${recipeYear} Baking Spirits Bright${recipe.winner ? ' Winner' : ' Entry'}`;
+  const formulaLink = document.getElementById('recipePlaceholderLink');
+  if (recipe.url) {
+    formulaLink.href = recipe.url;
+    formulaLink.textContent = 'View Formula →';
+    formulaLink.style.display = 'inline-block';
+  } else {
+    formulaLink.style.display = 'none';
+  }
+  document.getElementById('recipePlaceholderBack').onclick = () =>
+    isAllYears ? openAllCookieContests() : openCookieContest(recipeYear);
+  goTo('screen-recipe-placeholder');
+}
+
 function updateProgress(screenId) {
   const steps = {
     'screen-welcome': 1,
@@ -2678,6 +4284,8 @@ function updateProgress(screenId) {
     'screen-cookie-overview': 2,
     'screen-special': 2,
     'screen-holiday-cookies': 3,
+    'screen-cookie-contest': 4,
+    'screen-pistachio-cherry-recipe': 5,
     'screen-help-decide': 2,
     'screen-all-recipes': 5,
     'screen-recipe-placeholder': 5
@@ -2797,6 +4405,11 @@ function showRecipe(recipeId) {
   const recipe = recipes.find(r => r.id === recipeId);
   if (!recipe) return;
 
+  if (recipeId === 'special-holiday-cookies') {
+    openPistachioRecipe('all-recipes');
+    return;
+  }
+
   // Satisfying Whole Wheat has a live page — open it directly
   if (recipeId === 'satisfying-whole-wheat') {
     window.open('https://communityloaves.org/2026/07/satisfying-whole-wheat-sandwich-loaf/', '_blank');
@@ -2806,7 +4419,11 @@ function showRecipe(recipeId) {
   document.getElementById('recipePlaceholderIcon').textContent = recipe.icon;
   document.getElementById('recipePlaceholderTitle').textContent = recipe.name;
   document.getElementById('recipePlaceholderText').innerHTML = recipe.placeholder.replace(/\n/g, '<br/>');
-  document.getElementById('recipePlaceholderLink').href = recipe.url;
+  const recipeLink = document.getElementById('recipePlaceholderLink');
+  recipeLink.href = recipe.url;
+  recipeLink.textContent = 'Visit Recipe Page →';
+  recipeLink.style.display = 'inline-block';
+  document.getElementById('recipePlaceholderBack').onclick = () => goTo('screen-all-recipes');
   goTo('screen-recipe-placeholder');
 }
 
