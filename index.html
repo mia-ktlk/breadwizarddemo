@@ -1853,6 +1853,81 @@
       gap: 16px;
       margin-bottom: 16px;
     }
+    .holiday-choices-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .holiday-choices-stack > .help-decide-card {
+      width: 100%;
+    }
+    .holiday-recipe-rows {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .holiday-recipe-row {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border: 1px solid #eadfce;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 5px 16px rgba(64,45,30,0.09);
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    }
+    .holiday-recipe-row:hover {
+      border-color: var(--orange);
+      box-shadow: 0 6px 20px rgba(217,79,30,0.14);
+      transform: translateY(-1px);
+    }
+    .holiday-recipe-row img {
+      display: block;
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .holiday-recipe-row-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 8px;
+      padding: 16px 18px 18px;
+      background: #fffaf5;
+      flex: 1;
+    }
+    .holiday-recipe-row-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--brown);
+      line-height: 1.25;
+    }
+    .holiday-recipe-row-meta {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--brown-lt);
+      line-height: 1.4;
+      margin: 0;
+    }
+    .holiday-recipe-row .btn-primary {
+      width: 100%;
+      margin: auto 0 0;
+      padding: 10px 16px;
+      font-size: 0.84rem;
+    }
+    @media (max-width: 520px) {
+      .holiday-recipe-rows {
+        grid-template-columns: 1fr;
+      }
+      .holiday-recipe-row img {
+        height: 170px;
+      }
+    }
     .help-decide-card {
       background: #fff;
       border: 2.5px solid #e0d5c5;
@@ -2650,25 +2725,40 @@
       <img src="images/bread-wizard.png" alt="Wizard" class="wizard-mini" />
       <div class="section-header-text">
         <h2 class="section-title">Holiday Cookie Recipes</h2>
-        <p class="section-subtitle">Choose the 2026 recipe or browse past years.</p>
+        <p class="section-subtitle">Choose a 2026 donation recipe or browse past years.</p>
       </div>
     </div>
 
-    <div class="help-decide-grid" style="margin-bottom:20px;">
+    <div class="holiday-choices-stack">
 
-      <!-- 2026 WINNER / FEATURED RECIPE CARD -->
-      <div class="help-decide-card" onclick="openPistachioRecipe('holiday')" style="cursor:pointer;">
-        <h3 class="help-decide-title" style="display:flex;align-items:center;gap:8px;"><span>🏆</span> 2026 Winner — Featured Recipe</h3>
-        <p class="help-decide-desc"><strong>Pistachio Cherry Cookies</strong> by Shannon McCullough, Team Kirkland Mother Ship - N. Rose Hill. The official featured cookie for 2026.</p>
-        <div style="margin:16px 0 12px;background:#fff;border:1px solid #eadfce;border-radius:16px;overflow:hidden;box-shadow:0 5px 16px rgba(64,45,30,0.09);">
-          <img src="images/2026-competition/06-pistachio-cherry.jpg" alt="Pistachio Cherry Cookies" style="display:block;width:100%;object-fit:cover;max-height:190px;" />
-          <button class="btn-primary" style="width:100%;margin:0;border-radius:0;padding:16px 20px;" onclick="event.stopPropagation();openPistachioRecipe('holiday')">Pistachio Cherry Cookie Recipe →</button>
+      <!-- 2026 DONATION CHOICES -->
+      <div class="help-decide-card" style="cursor:default;">
+        <h3 class="help-decide-title" style="display:flex;align-items:center;gap:8px;"><span>❄️</span> 2026 Holiday Cookie Recipes</h3>
+        <p class="help-decide-desc">Two donation options this year — bake the Baking Spirits Bright winner, or the classic Community Loaves holiday cookie.</p>
+
+        <div class="holiday-recipe-rows">
+          <div class="holiday-recipe-row" onclick="openPistachioRecipe('holiday')">
+            <img src="images/2026-competition/06-pistachio-cherry.jpg" alt="Pistachio Cherry Cookies" />
+            <div class="holiday-recipe-row-body">
+              <div class="holiday-recipe-row-label">Pistachio Cherry Cookie Recipe</div>
+              <p class="holiday-recipe-row-meta">🏆 2026 Winner by Shannon McCullough, Team Kirkland Mother Ship - N. Rose Hill</p>
+              <button class="btn-primary" onclick="event.stopPropagation();openPistachioRecipe('holiday')">View Recipe →</button>
+            </div>
+          </div>
+
+          <div class="holiday-recipe-row" onclick="showClassicHolidayRecipe()">
+            <img src="images/maple-thumbprint.png" alt="Classic Holiday Cookies" />
+            <div class="holiday-recipe-row-body">
+              <div class="holiday-recipe-row-label">Classic Holiday Cookie Recipe</div>
+              <p class="holiday-recipe-row-meta">The traditional Community Loaves holiday cookie — a festive favorite for donation baking.</p>
+              <button class="btn-primary" style="background:var(--teal-dk);" onclick="event.stopPropagation();showClassicHolidayRecipe()">View Recipe →</button>
+            </div>
+          </div>
         </div>
-        <button class="btn-primary" style="width:100%;margin-top:0;background:var(--teal-dk);" onclick="event.stopPropagation();openCookieContest(2026)">View 2026 Competition →</button>
       </div>
 
       <!-- PAST RECIPES CARD -->
-      <div class="help-decide-card">
+      <div class="help-decide-card" style="cursor:default;">
         <h3 class="help-decide-title" style="display:flex;align-items:center;gap:8px;"><img src="images/recipe-cookie.png" alt="" style="width:34px;height:34px;object-fit:contain;" /> View Past Recipes</h3>
         <p class="help-decide-desc">Browse every entry from past Baking Spirits Bright competitions and meet the bakers behind them.</p>
         <div style="display:flex;flex-direction:column;gap:8px;margin:12px 0;">
@@ -3416,6 +3506,21 @@ const recipes = [
     placeholder: 'Pistachio Cherry Cookies\n\nThe official featured 2026 Community Loaves Holiday Cookie by Shannon McCullough of Team Kirkland Mother Ship - N. Rose Hill.'
   },
   {
+    id: 'classic-holiday-cookies',
+    name: 'Classic Holiday Cookie Recipe',
+    category: 'Special Donations',
+    filters: ['special', 'cookies', 'special-holiday'],
+    icon: '🎄',
+    img: 'images/maple-thumbprint.png',
+    tags: [
+      { label: '🎄 Special Donation', cls: 'badge-green' },
+      { label: '🍁 Holiday Cookies', cls: 'badge-gold' },
+      { label: 'Classic', cls: 'badge-teal' }
+    ],
+    url: 'https://communityloaves.org',
+    placeholder: 'Classic Holiday Cookie Recipe\n\nThe traditional Community Loaves holiday cookie — a festive favorite for donation baking. Recipe details coming soon.'
+  },
+  {
     id: 'holiday-cookies-2025',
     name: '2025 Holiday Cookie Recipe',
     category: 'Special Donations',
@@ -4108,6 +4213,21 @@ function openPistachioRecipe(source = 'contest') {
     backButton.onclick = () => openCookieContest(2026);
   }
   goTo('screen-pistachio-cherry-recipe');
+}
+
+function showClassicHolidayRecipe() {
+  const recipe = recipes.find(r => r.id === 'classic-holiday-cookies');
+  if (!recipe) return;
+  document.getElementById('recipePlaceholderIcon').textContent = recipe.icon;
+  document.getElementById('recipePlaceholderTitle').textContent = recipe.name;
+  document.getElementById('recipePlaceholderText').innerHTML = recipe.placeholder.replace(/\n/g, '<br/>');
+  const recipeLink = document.getElementById('recipePlaceholderLink');
+  recipeLink.href = recipe.url;
+  recipeLink.textContent = 'Visit Recipe Page →';
+  recipeLink.style.display = 'inline-block';
+  document.getElementById('recipePlaceholderBack').onclick = () => goTo('screen-holiday-cookies');
+  document.getElementById('recipePlaceholderBack').textContent = '← Back to Holiday Cookies';
+  goTo('screen-recipe-placeholder');
 }
 
 function openCookieContest(year) {
